@@ -53,9 +53,9 @@ function App() {
     </div>
   ) : null;
 
+  // 触发scroll的前提是app div设置了height以及overflow，app div的children超出了设置的height
+  // scroll是冒泡的，即header div, content div, footer div如果有scroll事件，可以在app div捕捉到
   return (
-    // 触发scroll的前提是app div设置了height以及overflow，app div的children超出了设置的height
-    // scroll是冒泡的，即header div, content div, footer div如果有scroll事件，可以在app div捕捉到
     <div className='App' onScroll={handleScroll} ref={refApp}>
       <div className='Header'>Header</div>
       <div className='Content'>
