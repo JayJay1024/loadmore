@@ -4,16 +4,16 @@ import './App.css';
 const countPerMore = 6;    // 每次loadmore显示的数量
 const heightPerImg = 200;  // 每个img高度，在css中设置
 
+const refApp = React.createRef<HTMLDivElement>();
+
+// 假设拥有的图片数
+const imgsIndex = [];
+for (let i = 0; i < 30; i++) {
+  imgsIndex.push(i);
+}
+
 function App() {
   const [imgsDisplayingIndex, setImgsDisplayingIndex] = useState<number[]>([]);  // 显示中的img
-
-  const refApp = React.createRef<HTMLDivElement>();
-
-  // 假设拥有的图片数
-  const imgsIndex = [];
-  for (let i = 0; i < 30; i++) {
-    imgsIndex.push(i);
-  }
 
   // 这里是下拉自动刷新，也可以使用 loadMoreButton 的方式
   const handleScroll = () => {
